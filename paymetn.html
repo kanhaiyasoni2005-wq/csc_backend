@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cashfree Sandbox Test</title>
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+</head>
+<body>
+  <h2>Cashfree Test Payment</h2>
+  <button onclick="payNow()">Pay Now</button>
+
+  <script>
+    const cashfree = Cashfree({
+      mode: "sandbox"
+    });
+
+    async function payNow() {
+      const paymentSessionId = "session_HNKiwPoIi_VW8TzkrYiiXK2FOBQdFuxmR7vgfkJe5HQIsPrR5VHqHF3bDbnP0I7VLbugWkYq6i8hvUhtLMZETo992bOMfdveILGyCL9GszYIiB7_1olOuVfMMamB7gpaymentpayment";
+
+      const result = await cashfree.checkout({
+        paymentSessionId: paymentSessionId,
+        redirectTarget: "_self"
+      });
+
+      console.log(result);
+    }
+  </script>
+</body>
+</html>
